@@ -40,3 +40,9 @@ def task_on_perm_reps():
         a.append(letters[letter])
     print("ответ: " + str(perm_reps(len(word), a)))
 
+def task_on_sum():
+    condition = "На подносе лежат a яблок и b груш. Сколькими способами можно взять один фрукт с подноса?"
+    print(condition)
+    a = int(input("введите a: "))
+    b = int(input("введите b: "))
+    print("ответ: " + str(a+b))
