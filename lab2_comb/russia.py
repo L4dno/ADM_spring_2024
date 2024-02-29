@@ -1,15 +1,20 @@
 #Лабороторная работа №2: Князев Артём, Хапков Михаил, Позоян Рафаэль
-def factorial(a): # функция факториала
+def factorial(a): # Функция факториала
     if a == 0 or a == 1:
         return 1
     else:
         return a * factorial(a - 1)
+
+# Код, реализующий размещение с повторениями
+# где n - количество размещений, а k - сколько элементов входит в одно размещение
 def placement_with_repetitions(n, k):
     print("Ответ:", n ** k)
-#    print("Ответ:",factorial(n)//(factorial(k)*factorial(n-k)))
 
+# Код, реализующий размещение без повторений
+# из n различных жлементов по k элементов
 def placement_without_repetitions(n, k):
     print("Ответ:", int(factorial(n)/factorial(n-k)))
+
 def main():
     print("Выберите тему:")
     print("1 - Правило суммы")
