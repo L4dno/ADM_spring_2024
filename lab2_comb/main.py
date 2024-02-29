@@ -4,6 +4,10 @@ def fact(a): # функция факториала
         return 1
     else:
         return a * fact(a - 1)
+    
+def product(n:int, m:int):
+    otv = (m+n)*(m+n-1)
+    print ("Всего способов: ",int(otv), '\n')
 
 def combinations_with_repetitions(n:int, k:int): # сочетание с повторениями (n+k-1)!/k!*(n-1)!
     otv = fact(n+k-1)/(fact(k)*fact(n-1))
@@ -30,11 +34,19 @@ def main():
     while choose != 0:
         if choose == 1:
             pass
+        
+        elif choose == 2:
+            print("В кофейне представлено n напитков и m сладостей. Сколькими способами можно сделать заказ из 2-x любых позиций?") # в задаче n = 10, m = 5, Ответ: 10
+            n = int(input('введите n: '))
+            m = int(input('введите m: '))
+            product(n, m)
+
         elif choose == 5:
             print("n ребят собрали в саду k яблока. Сколькими способами они могут их разделить между собой?") # в задаче из учебника n = 3, k=63, C=2080
             n = int(input('введите n: '))
             k = int(input('введите k: '))
             combinations_with_repetitions(n, k)
+
         elif choose == 6: 
             print("У вас есть n различных книг, и вы хотите выбрать k книги для чтения. Сколькими способами вы можете выбрать эти книги?") # в задаче n=5, k=3, C=10
             n = int(input('введите n: '))
