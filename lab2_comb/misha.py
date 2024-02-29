@@ -21,21 +21,17 @@ def perm_reps(n, a):
 # функция, реализующая задачу на перестановки без повторов
 def task_on_perm():
     # в учебнике при n = 8 ответ 40320
-    condition = "Сколькими способами можно расположить на шахматной доске n ладей, \
-                    чтобы они «не били» друг друга?"
+    condition = "Сколькими способами можно расположить на шахматной доске n ладей, чтобы они «не били» друг друга?"
     print(condition)
-    print("введите n")
-    n = int(input())
+    n = int(input("введите n: "))
     print("ответ: " + str(perm(n)))
 
 # функция, реализующая задачу на перестановки с повторениями
 def task_on_perm_reps():
     # в учебнике слово = "уссури" и ответ 180
-    condition = "Сколько существует различных перестановок из \
-                    букв введенного слова?"
+    condition = "Сколько существует различных перестановок из букв введенного слова?"
     print(condition)
-    print("введите слово")
-    word = input()
+    word = input("введите слово: ")
     letters = dict()
     for symb in word:
         letters[symb] = word.count(symb)
@@ -43,8 +39,4 @@ def task_on_perm_reps():
     for letter in letters:
         a.append(letters[letter])
     print("ответ: " + str(perm_reps(len(word), a)))
-    
-#task_on_perm()
-task_on_perm_reps()
-
 
