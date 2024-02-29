@@ -1,15 +1,15 @@
 #Лабороторная работа №2: Князев Артём, Хапков Михаил, Позоян Рафаэль
-def factorial(n):
-    result = 1
-    for i in range(1, n + 1):
-        result *= i
-    return result
-
-def placement_with_repetitions(m, n):
-    print(m ** n)
+def factorial(a): # функция факториала
+    if a == 0 or a == 1:
+        return 1
+    else:
+        return a * factorial(a - 1)
+def placement_with_repetitions(n, k):
+    print("Ответ:", n ** k)
+#    print("Ответ:",factorial(n)//(factorial(k)*factorial(n-k)))
 
 def placement_without_repetitions(n, k):
-    print(int(factorial(n)/factorial(n-k)))
+    print("Ответ:", int(factorial(n)/factorial(n-k)))
 def main():
     print("Выберите тему:")
     print("1 - Правило суммы")
@@ -24,22 +24,24 @@ def main():
     choose = int(input())
 
     if choose == 3:
-        print("Введите m")
-        m = int(input())
+        print("Для создания n-значного пароля используются символы из алфавита {k1,k2,...k}.") # В условии задачи n = 4, а k = {+,*,A,!,2, 1}. Ответ = 4096
+
         print("Введите n")
         n = int(input())
-
-        if n > m:
-            placement_with_repetitions(m, n)
-        else:
-            print("Неправильный ввод данных (m<=n)")
-
-    elif choose == 4:
-        print("Введите n")
-        n = int(input()) 
         print("Введите k")
         k = int(input())
 
+        placement_with_repetitions(n, k)
+
+    elif choose == 4:
+        print("В хоккейном турнире участвуют n команд. \n"
+              "Разыгрываются золотые, серебряные и бронзовые медали. \n"
+              "Сколькими способами могут быть распределены медали?") # В условии из учебника в турнире усаствуют 17 команд. Ответ = 4080
+        print("")
+        print("Введите n")
+        n = int(input())
+        print("Введите k")
+        k = int(input())
         placement_without_repetitions(n, k)
 
 if __name__ == '__main__':
