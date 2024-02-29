@@ -36,7 +36,7 @@ def main():
 
     elif choose == 4:
         print("Введите n")
-        n = int(input())
+        n = int(input()) 
         print("Введите k")
         k = int(input())
 
