@@ -1,3 +1,4 @@
+#Лабороторная работа №3: Князев Артём, Хапков Михаил, Позоян Рафаэль
 class Sequence:
     def __init__(self, data):
         self.data = data
