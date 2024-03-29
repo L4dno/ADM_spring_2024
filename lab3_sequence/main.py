@@ -1,63 +1,99 @@
-#Лабороторная работа №3: Князев Артём, Хапков Михаил, Позоян Рафаэль
-class Sequence:
+# #Лабороторная работа №3: Князев Артём, Хапков Михаил, Позоян Рафаэль
+# class Sequence:
+#     def __init__(self, data):
+#         self.data = data
+
+#     def __len__(self):
+#         return len(self.data)
+
+#     def __getitem__(self, index):
+#         return self.data[index]
+
+#     def __setitem__(self, index, value):
+#         self.data[index] = value
+
+#     def __repr__(self):
+#         return repr(self.data)
+
+#     def shift(self, steps):
+#         """
+#         Сдвигает элементы последовательности на заданное количество шагов.
+#         Если steps > 0, элементы сдвигаются вправо.
+#         Если steps < 0, элементы сдвигаются влево.
+#         """
+#         if steps > 0:
+#             return Sequence(self.data[-steps:] + self.data[:-steps])
+#         elif steps < 0:
+#             return Sequence(self.data[-steps:] + self.data[:-steps])
+#         else:
+#             return self
+
+#     def shift_left(self, steps=1):
+#         """
+#         Сдвигает элементы последовательности влево на заданное количество шагов.
+#         """
+#         return self.shift(-steps)
+
+#     def shift_right(self, steps=1):
+#         """
+#         Сдвигает элементы последовательности вправо на заданное количество шагов.
+#         """
+#         return self.shift(steps)
+
+# def main():
+#     user_input = input("Введите массив целых чисел в формате [1, 2, 3, 4, 5]: ")
+    
+#     numbers_str = user_input.strip('[]').split(',')
+    
+#     integer_array = [int(num.strip()) for num in numbers_str]
+#     seq = Sequence(integer_array)
+#     print(f'ваш массив: {seq} \n')
+
+#     step_right = int(input("Введите количество шагов, на которое будет осуществляться сдвиг вправо: "))
+#     step_left = int(input("Введите количество шагов, на которое будет осуществляться сдвиг влево: "))
+
+
+#     seq_shifted_right = seq.shift_right(step_right)
+#     print(f'Сдвиг вправо на {step_right} элемента:')
+#     print(seq_shifted_right) 
+
+#     seq_shifted_left = seq.shift_left(step_left)
+#     print(f'Сдвиг влево на {step_left} элемента:')
+#     print(seq_shifted_left)
+
+# if __name__ == '__main__':
+#     main()
+class Node:
     def __init__(self, data):
         self.data = data
+        self.next = None
 
-    def __len__(self):
-        return len(self.data)
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
-    def __getitem__(self, index):
-        return self.data[index]
-
-    def __setitem__(self, index, value):
-        self.data[index] = value
-
-    def __repr__(self):
-        return repr(self.data)
-
-    def shift(self, steps):
-        """
-        Сдвигает элементы последовательности на заданное количество шагов.
-        Если steps > 0, элементы сдвигаются вправо.
-        Если steps < 0, элементы сдвигаются влево.
-        """
-        if steps > 0:
-            return Sequence(self.data[-steps:] + self.data[:-steps])
-        elif steps < 0:
-            return Sequence(self.data[-steps:] + self.data[:-steps])
+    def append(self, data):
+        if not self.head:
+            self.head = Node(data)
         else:
-            return self
+            current = self.head
+            while current.next:
+                current = current.next
+            current.next = Node(data)
 
-    def shift_left(self, steps=1):
-        """
-        Сдвигает элементы последовательности влево на заданное количество шагов.
-        """
-        return self.shift(-steps)
+    def print_list(self):
+        current = self.head
+        while current:
+            print(current.data, end=" -> ")
+            current = current.next
+        print("None")
 
-    def shift_right(self, steps=1):
-        """
-        Сдвигает элементы последовательности вправо на заданное количество шагов.
-        """
-        return self.shift(steps)
+# Пример использования
+ll = LinkedList()
+ll.append(1)
+ll.append(2)
+ll.append(3)
+ll.append(4)
+ll.append(5)
 
-def main():
-    user_input = input("Введите массив целых чисел в формате [1, 2, 3, 4, 5]: ")
-    
-    numbers_str = user_input.strip('[]').split(',')
-    
-    integer_array = [int(num.strip()) for num in numbers_str]
-    seq = Sequence(integer_array)
-    print(f'ваш массив: {seq} \n') # Вывод: [1, 2, 3, 4, 5]
-
-    step = int(input("Введите количество шагов, на которое будет осуществляться сдвиг: "))
-
-    seq_shifted_right = seq.shift_right(step)
-    print(f'Сдвиг вправо на {step} элемента:')
-    print(seq_shifted_right) # Вывод: [4, 5, 1, 2, 3]
-
-    seq_shifted_left = seq.shift_left(step)
-    print(f'Сдвиг влево на {step} элемента:')
-    print(seq_shifted_left) # Вывод: [3, 4, 5, 1, 2]
-
-if __name__ == '__main__':
-    main()
+ll.print_list()
