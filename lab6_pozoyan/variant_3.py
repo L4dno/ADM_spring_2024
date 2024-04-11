@@ -1,6 +1,6 @@
 def stella_algorithm(permutation):
     n = len(permutation)
-    z = [0] * (n + 2)
+    z = [0] * ( n + 2)
     p = [0] * (n + 2)
     d = [0] * (n + 2)
 
