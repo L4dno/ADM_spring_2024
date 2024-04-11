@@ -1,3 +1,6 @@
+# Князев Артём, Позоян Рафаэль - БПМ-22-4
+# Практическая работа №7
+
 class TreeSorting():
     def __init__(self, input_array): 
         self.input_array = input_array
